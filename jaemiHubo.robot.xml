@@ -66,4 +66,10 @@
         <effector>rightFootBase</effector>
         <direction>0 0 -1</direction>
     </Manipulator>
+
+    <Manipulator name="hipManip">
+        <base>Torso</base>
+        <effector>Hip</effector>
+        <direction>0 0 1</direction>
+    </Manipulator>
 </Robot>
