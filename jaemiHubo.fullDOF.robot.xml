@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <Robot name="jaemiHubo" >
-    <KinBody file="jaemiHubo.trunk.kinbody.xml" makejoinedlinksadjacent="true">
+    <KinBody file="jaemiHubo.affine.kinbody.xml" makejoinedlinksadjacent="true">
+
+        <KinBody file="jaemiHubo.trunk.kinbody.xml" makejoinedlinksadjacent="true"/>
+        
+        <Joint name="jRZ" type="hinge" circular="true">
+            <Body>RY</Body>
+            <Body>Torso</Body>
+            <axis>0 0 1</axis>
+        </Joint>
+
         <KinBody file="jaemiHubo.leftArm.kinbody.xml"/>
         
         <Joint name="leftTorsoJoint" type ="hinge" enable="false">
@@ -51,7 +60,7 @@
 
     <Manipulator name="rightArmManip">
         <base>rightTorsoDummy</base>
-        <effector>rightPalmShell</effector>
+        <effector>rightPalm</effector>
         <direction>0 1 0</direction>
     </Manipulator>
 
@@ -65,5 +74,11 @@
         <base>Hip</base>
         <effector>rightFootBase</effector>
         <direction>0 0 -1</direction>
+    </Manipulator>
+
+    <Manipulator name="hipManip">
+        <base>base</base>
+        <effector>Torso</effector>
+        <direction>0 0 1</direction>
     </Manipulator>
 </Robot>
