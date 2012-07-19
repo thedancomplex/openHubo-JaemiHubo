@@ -3,4 +3,4 @@
 	url = ssh://robEllenberg@dasl.mem.drexel.edu/home/projects/hubo/exportedModels
 [submodule "huboJointConstants"]
 	path = huboJointConstants
-	url = git@github.com:thedancomplex/huboJointConstants.git
+	url = https://github.com/thedancomplex/huboJointConstants.git
