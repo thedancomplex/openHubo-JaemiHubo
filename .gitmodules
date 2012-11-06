@@ -1,6 +1,18 @@
+<<<<<<< HEAD
 [submodule "exportedModels"]
 	path = exportedModels
 	url = ssh://robEllenberg@dasl.mem.drexel.edu/home/projects/hubo/exportedModels
 [submodule "huboJointConstants"]
 	path = huboJointConstants
 	url = https://github.com/thedancomplex/huboJointConstants.git
+=======
+[submodule "forceSensor"]
+	path = forceSensor
+	url = git://github.com/robEllenberg/forceSensor.git
+[submodule "comps-plugins"]
+	path = comps-plugins
+	url = git://github.com/robEllenberg/comps-plugins.git
+[submodule "openmr"]
+	path = openmr
+	url = git://github.com/robEllenberg/openmr.git
+>>>>>>> abbe6940c5ee52fbc219a3a85a44917a5603b6c8
