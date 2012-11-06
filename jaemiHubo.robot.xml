@@ -20,7 +20,14 @@
         </Joint>
         <adjacent>Torso Body_RSP</adjacent>
 
+<<<<<<< .merge_file_8gOVRw
         <KinBody file="leftleg.kinbody.xml"/>
+=======
+        <KinBody file="kinbody/leftleg.kinbody.xml"/>
+        <Body name="hipDummyLeft" type="dynamic">
+            <offsetfrom>Hip</offsetfrom> 
+        </Body>
+>>>>>>> .merge_file_VUKX8w
 
         <Joint name="leftHipYawJoint" type="hinge" enable="false">
             <Body>Hip</Body>
@@ -28,7 +35,14 @@
             <limits>0 0</limits>
         </Joint>
 
+<<<<<<< .merge_file_8gOVRw
         <KinBody file="rightleg.kinbody.xml"/>
+=======
+        <KinBody file="kinbody/rightleg.kinbody.xml"/>
+        <Body name="hipDummyRight" type="dynamic">
+            <offsetfrom>Hip</offsetfrom> 
+        </Body>
+>>>>>>> .merge_file_VUKX8w
 
         <Joint name="rightHipYawJoint" type="hinge" enable="false">
             <Body>Hip</Body>
@@ -41,6 +55,35 @@
         <adjacent>Hip leftHip</adjacent>
         <adjacent>Hip rightHip</adjacent>
 
+<<<<<<< .merge_file_8gOVRw
+=======
+        <KinBody file="kinbody/lefthand.kinbody.xml"/>
+
+        <Body name="leftPalm" type="dynamic">
+            <offsetfrom>leftPalmDummy</offsetfrom> 
+        </Body>
+
+        <Joint name="attachLeftHand" type="hinge" enable="false">
+            <Body>leftPalmDummy</Body>
+            <Body>leftPalm</Body>
+            <limits>0 0</limits>
+        </Joint>
+        <adjacent>leftUJoint leftPalm</adjacent>
+        <adjacent>Body_LWY leftPalm</adjacent>
+
+        <KinBody file="kinbody/righthand.kinbody.xml"/>
+
+        <Body name="rightPalm" type="dynamic">
+            <offsetfrom>rightPalmDummy</offsetfrom> 
+        </Body>
+
+        <Joint name="attachRightHand" type="hinge" enable="false">
+            <Body>rightPalmDummy</Body>
+            <Body>rightPalm</Body>
+            <limits>0 0</limits>
+        </Joint>
+
+>>>>>>> .merge_file_VUKX8w
     </KinBody>
     
     <Manipulator name="leftArmManip">
