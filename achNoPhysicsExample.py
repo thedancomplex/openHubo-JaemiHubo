@@ -5,12 +5,36 @@ from numpy import *
 import time
 import sys
 import curses
+import traceback
+import ctypes, ctypes.util
+from ctypes import *
+
+HUBO_JOINT_COUNT = 50
+
+libach = ctypes.util.find_library('ach')
+ach = ctypes.CDLL(libach)
+
+hubo_ref_chan = pointer(c_long(0))
+
+ach_open = ach.ach_open
+ach_get = ach.ach_get
+
+hubo_ref_chan = pointer(c_long(0))
+r = ach_open( hubo_ref_chan, c_char_p('hubo-ref'), c_int(0))
+print "Ach Ref Chan Open 0 if ok = ", r
 
 
-idan = 0; 
+class hubo_ref_type(Structure):
+    _fields_=[("ref_array", c_double * HUBO_JOINT_COUNT)]
+
+def makeGlobals():
+    global hubo_ref_chan
+    return 0
+
 
 def run():
 
+    global hubo_ref_chan
     #-- Read the name of the xml file passed as an argument
     #-- or use the default name
     try:
@@ -47,8 +71,7 @@ def run():
     endtime=time.time()
     print "Elapsed time for {} commands is {}".format(itrs,endtime-starttime)
     print "Average cmd time is {}".format((endtime-starttime)/itrs)
-    raw_input("Press Enter to continue...")
-    return 0
+    return 0 
 
 def setACHReferenceDirect(robot,refPos):
     ind=zeros(len(refPos))
@@ -72,5 +95,14 @@ def readACHPacket(units):
 
     return setPoint
 
+
+
 if __name__=='__main__':
+    makeGlobals()
     run()
+    print libach
+    print ach_open
+    print ach_get
+    print "hubo_ref_chan = ", hubo_ref_chan
+    raw_input("Press Enter to continue...")
+    sys.exit('Exiting')
