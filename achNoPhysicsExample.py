@@ -6,6 +6,9 @@ import time
 import sys
 import curses
 
+
+idan = 0; 
+
 def run():
 
     #-- Read the name of the xml file passed as an argument
@@ -28,7 +31,8 @@ def run():
 
     time.sleep(2)
 
-    setACHReferenceDirect(robot,{'LSR':50,'RSR':-50,'REP':-20,'LEP':-20})
+    #setACHReferenceDirect(robot,{'LSR':50,'RSR':-50,'REP':-20,'LEP':-20})
+    setACHReferenceDirect(robot,{'LSR':1.0,'RSR':-1.0,'REP':-1.0,'LEP':-1.0})
     
     starttime=time.time()
     itrs=10000;
@@ -37,11 +41,14 @@ def run():
         #Uncomment to see timing with ACH packet parser
         #setACHReferenceDirect(robot,readACHPacket('rad'))
         #uncomment to see timing of only the OpenRAVE SetDOF function
-        setACHReferenceDirect(robot,{'RSP':0.0})
+        setACHReferenceDirect(robot,{'RSP':1.2345})
+	print i
         #time.sleep(.1)
     endtime=time.time()
     print "Elapsed time for {} commands is {}".format(itrs,endtime-starttime)
     print "Average cmd time is {}".format((endtime-starttime)/itrs)
+    raw_input("Press Enter to continue...")
+    return 0
 
 def setACHReferenceDirect(robot,refPos):
     ind=zeros(len(refPos))
